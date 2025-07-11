@@ -1,0 +1,48 @@
+{
+  "employees": [
+    {
+      "id": "da0f",
+      "name": "dilasha thapa",
+      "email": "abc@gmail.com",
+      "department": "marketing",
+      "designation": "midlevel",
+      "userType": "employee",
+      "salary": "30000",
+      "password": "hellloooo",
+      "date": "2025-07-07"
+    },
+    {
+      "id": "3ecf",
+      "name": "dilasha thapa",
+      "email": "abx@gmail.com",
+      "department": "marketing",
+      "designation": "junior",
+      "userType": "manager",
+      "salary": "40000",
+      "password": "hello",
+      "date": "2025-07-08"
+    },
+    {
+      "id": "2cc1",
+      "name": "nisha",
+      "email": "cds@gmail.com",
+      "department": "sales",
+      "designation": "senior",
+      "userType": "manager",
+      "salary": "45000",
+      "password": "hehehe",
+      "date": "2025-07-08"
+    },
+    {
+      "id": "603b",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "department": "marketing",
+      "designation": "midlevel",
+      "userType": "manager",
+      "salary": "41431",
+      "password": "pass@123",
+      "date": "2025-07-08"
+    }
+  ]
+}
