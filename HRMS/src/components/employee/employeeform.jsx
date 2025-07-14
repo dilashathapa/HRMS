@@ -6,7 +6,7 @@ export default function EmployeeForm({
   setEmployees,
   setModelForm,
   editEmployee,
-  setEditEmployee,
+  setEditEmployee, 
 }) {
 const [name, setName] = useState("");
 const [email, setEmail] = useState("");
@@ -87,6 +87,7 @@ useEffect (() => {
                 setSalary("")
                 setPassword("")
                 setConfirmPassword("")
+                
             }
         } 
       }
