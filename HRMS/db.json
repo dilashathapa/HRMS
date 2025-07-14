@@ -43,6 +43,28 @@
       "salary": "41431",
       "password": "pass@123",
       "date": "2025-07-08"
+    },
+    {
+      "id": "0ed2",
+      "name": "myself",
+      "email": "myself1@gmail.com",
+      "department": "engineering",
+      "designation": "senior",
+      "userType": "hr",
+      "salary": "340000",
+      "password": "myself",
+      "date": "2025-07-14"
+    },
+    {
+      "id": "027a",
+      "name": "your",
+      "email": "your12@gmail.com",
+      "department": "sales",
+      "designation": "senior",
+      "userType": "employee",
+      "salary": "45000",
+      "password": "employee",
+      "date": "2025-07-14"
     }
   ]
 }
