@@ -65,6 +65,28 @@
       "salary": "45000",
       "password": "employee",
       "date": "2025-07-14"
+    },
+    {
+      "id": "7876",
+      "name": "aljina",
+      "email": "aljina1@gmail.com",
+      "department": "sales",
+      "designation": "senior",
+      "userType": "employee",
+      "salary": "65000",
+      "password": "aljina",
+      "date": "2025-07-15"
+    },
+    {
+      "id": "76fd",
+      "name": "hero",
+      "email": "hero@gmail.com",
+      "department": "sales",
+      "designation": "intern",
+      "userType": "employee",
+      "salary": "4000",
+      "password": "12345",
+      "date": "2025-07-15"
     }
   ]
 }

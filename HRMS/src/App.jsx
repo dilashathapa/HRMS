@@ -8,13 +8,15 @@ import Home from './pages/home'
 import EmployeeForm from './pages/Employee'
 import Dashboard from "./pages/dashboard"
 import ProtectedRoute from './components/utils/protectedRoute'
+import Unauthorized from './components/utils/Unauthorize'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
     <Routes> 
-      <Route path ="/" element = {<Loginform/>} > </Route>
+      <Route path ="/" element = {<Loginform/>} />
+      <Route path = "/unauthorized" element = {<Unauthorized/>} />
       <Route path = "home" element = {
         <ProtectedRoute>
         <Home/>
