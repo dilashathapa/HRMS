@@ -56,7 +56,7 @@ useEffect (() => {
        try {
       if (editEmployee) {
         const response = await axios.put (
-         `http://localhost:5000/employees/${editEmployee.id}`,
+         `http://localhost:8000/employee/${editEmployee.id}`,
          employeeData,
          { headers: { Authorization: `Bearer ${token}`} }
         );
@@ -67,7 +67,7 @@ useEffect (() => {
       setEditEmployee(null);
       } else {
         const response = await axios.post(
-          "http://localhost:5000/employees",
+          "http://localhost:8000/employee",
           employeeData,
           {
             headers: {

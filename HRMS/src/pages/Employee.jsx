@@ -5,6 +5,7 @@ import SearchSelect from "../components/employee/selectsearch";
 import EmployeeCard from "../components/employee/employeecard";
 import EmployeeForm from "../components/employee/employeeform";
 import axios from "axios";
+
 export default function Employee() {
   const [modelform, setModelForm] = useState(false);
   const [employees, setEmployees] = useState([]);
@@ -12,7 +13,7 @@ export default function Employee() {
   const fetchEmployees = async () => {
     const token = localStorage.getItem("token");
     try{
-      const res = await axios.get("http://localhost:5000/employees",{
+      const res = await axios.get("http://localhost:8000/employee",{
       headers:{
         Authorization: `Bearer ${token}`,
       },
@@ -31,7 +32,7 @@ export default function Employee() {
     if (!confirmDelete) return;
     const token = localStorage.getItem("token");
     try{
-      await axios.delete(`http://localhost:5000/employees/${id}`,{
+      await axios.delete(`http://localhost:8000/employee/${id}`,{
         headers:{
           Authorization: `Bearer ${token}`,
         },
