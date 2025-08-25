@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/employee/button";
 import { FaPlus } from "react-icons/fa6";
 import SearchSelect from "../components/employee/selectsearch";
@@ -12,34 +12,38 @@ export default function Employee() {
   const [editEmployee, setEditEmployee] = useState(null);
   const fetchEmployees = async () => {
     const token = localStorage.getItem("token");
-    try{
-      const res = await axios.get("http://localhost:8000/employee",{
-      headers:{
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setEmployees(res.data);
-    console.log(res.data)
+    try {
+      const res = await axios.get("http://localhost:8000/employee", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (res.status === 200) {
+        setEmployees(res?.data.data);
+      }
     } catch (err) {
-      console.error("Failed to fetch employees",err);
+      console.error("Failed to fetch employees", err);
     }
   };
   useEffect(() => {
     fetchEmployees();
-  },[]);
-  const handleDelete = async (id) => {
+  }, []);
+
+
+  const handleDelete = async (_id) => {
     const confirmDelete = window.confirm("Do you want to delete the employee?");
     if (!confirmDelete) return;
     const token = localStorage.getItem("token");
-    try{
-      await axios.delete(`http://localhost:8000/employee/${id}`,{
-        headers:{
+    try {
+      await axios.delete(`http://localhost:8000/employee/${_id}`, {
+        headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setEmployees((prev) => prev.filter((emp) => emp.id !== id));
+      setEmployees((prev) => prev.filter((emp) => emp._id !== _id));
       alert("Employee deleted successfully!");
-    } catch {error} {
+    } catch { error } {
       console.error("Error deleting employee:", error);
       alert("Something went wrong while deleting.");
     }
@@ -54,22 +58,22 @@ export default function Employee() {
           </p>
         </div>
 
-        <Button 
-        onClick = {() => {
-          setModelForm(true);
-          setEditEmployee(null);
-        }}
-        icon={<FaPlus />} type="button">
+        <Button
+          onClick={() => {
+            setModelForm(true);
+            setEditEmployee(null);
+          }}
+          icon={<FaPlus />} type="button">
           Add Employee
         </Button>
       </div>
 
       <SearchSelect />
       <EmployeeCard
-      employees={employees}
-      setEditEmployee = {setEditEmployee}
-      setModelForm = {setModelForm}
-      handleDelete = {handleDelete}
+        employees={employees}
+        setEditEmployee={setEditEmployee}
+        setModelForm={setModelForm}
+        handleDelete={handleDelete}
       />
       {modelform && (
         <div className="fixed inset-0 bg-transparent bg-opacity-10 backdrop-brightness-30 flex items-center justify-center">
@@ -80,12 +84,12 @@ export default function Employee() {
             >
               ✕
             </Button>
-            <EmployeeForm 
-            setEmployees={setEmployees}
-            setModelForm={setModelForm}
-            editEmployee={editEmployee}
-            setEditEmployee={setEditEmployee}
-             />
+            <EmployeeForm
+              setEmployees={setEmployees}
+              setModelForm={setModelForm}
+              editEmployee={editEmployee}
+              setEditEmployee={setEditEmployee}
+            />
           </div>
         </div>
       )}

@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children, allowedRoles = []}) {
     if (!token || !user) {
         return <Navigate to="/" />;
     }
-    if (allowedRoles.length > 0 && !allowedRoles.includes(user.role)){
+    if (allowedRoles.length > 0 && !allowedRoles.includes(user.userType)){
         return <Unauthorized/>;
     }
     return children;

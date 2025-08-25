@@ -37,10 +37,14 @@ useEffect (() => {
             !userType ||
             !salary ||
             !password ||
-            !confirmPassword 
+            !confirmPassword  
         ) {
             alert ("Please fill out all fields.");
             return;
+        }
+        if (password!== confirmPassword){
+          alert("Passwords do not match.");
+          return;
         }
         const employeeData = {
             name,
@@ -56,12 +60,12 @@ useEffect (() => {
        try {
       if (editEmployee) {
         const response = await axios.put (
-         `http://localhost:8000/employee/${editEmployee.id}`,
+         `http://localhost:8000/employee/${editEmployee._id}`,
          employeeData,
          { headers: { Authorization: `Bearer ${token}`} }
         );
         setEmployees((prev) => 
-        prev.map((emp) => (emp.id === editEmployee.id ? response.data : emp))
+        prev.map((emp) => (emp._id === editEmployee._id ? response.data.data : emp))
       );
       alert("Employee updated successfully!");
       setEditEmployee(null);

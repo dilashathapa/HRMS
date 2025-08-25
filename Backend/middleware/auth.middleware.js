@@ -13,19 +13,23 @@ if (!authHeader || !authHeader.startsWith("Bearer")){
 const token = authHeader.split(" ")[1];
 try {
 
+//4. verify the token
 const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-const {userType} = decoded;
-if(userType.toLowerCase() === "employee") {
-    return res.status(400).json({message: "access denied."})
-    
-}
+req.user = decoded;
 next();
-
 } catch (error) {
-    // 6. if unverified, send error response
+
+    // 5. if token unverified, send error response
     console.log("Error verifying token:", error);
     res.status(400).json({message: "Invalid token"});
 }
+}
 
+export function checkRole(req, res, next){
+    const user = req.user;
+    const {userType} = user;
+    if (userType.toLowerCase() === "employee") {
+        return rex.status(400).json({message: "Access Denied."});
+    }
+    next();
 }
